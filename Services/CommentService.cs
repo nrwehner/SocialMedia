@@ -11,6 +11,11 @@ namespace Services
 {
     public class CommentService
     {
+        private readonly Guid _userId;
+        public CommentService(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateComment(CommentCreate model)
         {
             var entity =
