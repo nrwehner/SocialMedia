@@ -23,7 +23,7 @@ namespace Services
                 {
                     Title = model.Title,
                     Text = model.Text,
-                    Author = model.Author,
+                    //Author = model.Author,
                     CreatedUtc = DateTimeOffset.Now
                 };
             using(var ctx = new ApplicationDbContext())
@@ -48,7 +48,7 @@ namespace Services
                                 Id = e.Id,
                                 Title = e.Title,
                                 Text=e.Text,
-                                Author=e.Author,
+                                //Author=e.Author,
                                 CreatedUtc=e.CreatedUtc
                             }
                         );
@@ -56,7 +56,7 @@ namespace Services
             }
         }
 
-        public PostDetail GetPostByComment(User author)//       pretty sure this doesn't work
+        /*public PostDetail GetPostByComment(User author)//       pretty sure this doesn't work
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -74,6 +74,6 @@ namespace Services
                         CreatedUtc = entity.CreatedUtc
                     };
             }
-        }
+        }*/
     }
 }

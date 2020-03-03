@@ -19,10 +19,9 @@ namespace Data
         [Range(1,240)]
         public string Text { get; set; }
        
-        //[ForeignKey]
-        public User Name { get; set; }
-        [Required]
-        public virtual User Author { get; set; }
+        [ForeignKey(nameof(User))]
+        public Guid UserId { get; set; }
+        public virtual User User { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
 
     }

@@ -20,8 +20,8 @@ namespace Models
         [MaxLength(240, ErrorMessage ="There are too many characters in this post.")]
         public string Text { get; set; }
 
-        [Required]
+        /*[Required]
         public User Author { get; set; }
-
+        */
     }
 }
