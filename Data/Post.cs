@@ -19,7 +19,6 @@ namespace Data
         [Range(1,240)]
         public string Text { get; set; }
        
-        //[ForeignKey]
         public User Name { get; set; }
         [Required]
         public virtual User Author { get; set; }
