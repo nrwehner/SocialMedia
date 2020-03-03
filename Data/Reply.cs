@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models
+namespace Data
 {
-    public class Class1
+    public class Reply : Comment
     {
+        public Comment ReplyComment { get; set; }
+
     }
 }

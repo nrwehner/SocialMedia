@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services
+namespace Data
 {
-    public class Class1
+    public class Like
     {
+        public Post LikedPost { get; set; }
+        public User Liker { get; set; }
     }
 }
