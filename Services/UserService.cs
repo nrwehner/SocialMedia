@@ -9,43 +9,42 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class CommentService
+    public class UserService
     {
         private readonly Guid _userId;
-        public CommentService(Guid userId)
+        public UserService(Guid userId)
         {
             _userId = userId;
         }
-        public bool CreateComment(CommentCreate model)
+        public bool CreateUser(UserCreate model)
         {
             var entity =
-                new Comment()
+                new User()
                 {
-                    Text = model.Text,
-                    Author = model.Author,
-                    CommentPost = model.CommentPost
+                    //Id = model.Id,
+                    Name = model.Name,
+                    Email = model.Email
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Comments.Add(entity);
+                ctx.Users.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-
-        public IEnumerable<CommentListItem> GetComment()
+        public IEnumerable<UserListItem> GetUser()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Comments
+                    .Users
                     .Select(
                         e =>
-                        new CommentListItem
+                        new UserListItem
                         {
-                            Text = e.Text,
-                            Author = e.Author,
-                            CommentPost = e.CommentPost
+                            Id = e.Id,
+                            Name = e.Name,
+                            Email = e.Email
                         }
                    );
                 return query.ToArray();
@@ -53,4 +52,3 @@ namespace Services
         }
     }
 }
-

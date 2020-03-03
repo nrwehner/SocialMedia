@@ -1,21 +1,19 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace Models
 {
-    public class Comment
+    public class ReplyCreate
     {
-        [Key]
-        public int CommentId { get; set; }
         public string Text { get; set; }
 
         public User Name { get; set; }
         public virtual User Author { get; set; }
         public Post CommentPost { get; set; }
+        public Comment ReplyComment { get; set; }
     }
 }

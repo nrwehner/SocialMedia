@@ -23,7 +23,7 @@ namespace Services
                 {
                     Title = model.Title,
                     Text = model.Text,
-                    Author = model.Author,
+                    UserId = model.UserId,
                     CreatedUtc = DateTimeOffset.Now
                 };
             using(var ctx = new ApplicationDbContext())
@@ -45,10 +45,10 @@ namespace Services
                         e =>
                             new PostListItem
                             {
-                                Id = e.Id,
+                                //Id = e.Id,
                                 Title = e.Title,
                                 Text=e.Text,
-                                Author=e.Author,
+                                UserId=e.UserId,
                                 CreatedUtc=e.CreatedUtc
                             }
                         );
@@ -56,24 +56,24 @@ namespace Services
             }
         }
 
-        public PostDetail GetPostByComment(User author)//       pretty sure this doesn't work
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Posts
-                        .Single(e => e.Author == author);
-                return
-                    new PostDetail
-                    {
-                        Id = entity.Id,
-                        Title = entity.Title,
-                        Text = entity.Text,
-                        Author = entity.Author,
-                        CreatedUtc = entity.CreatedUtc
-                    };
-            }
-        }
+        //public PostDetail GetPostByComment(Guid userId)//       pretty sure this doesn't work
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Posts
+        //                .Single(e => e.UserId == userId);
+        //        return
+        //            new PostDetail
+        //            {
+        //                Id = entity.Id,
+        //                Title = entity.Title,
+        //                Text = entity.Text,
+        //                UserId = entity.UserId,
+        //                CreatedUtc = entity.CreatedUtc
+        //            };
+        //    }
+        //}
     }
 }
