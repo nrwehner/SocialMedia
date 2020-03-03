@@ -19,7 +19,7 @@ namespace Models
         [Range(1, 240)]
         public string Text { get; set; }
         [Required]
-        public User Author { get; set; }
+        public Guid UserId { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
 
     }

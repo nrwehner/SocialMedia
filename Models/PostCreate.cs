@@ -21,7 +21,7 @@ namespace Models
         public string Text { get; set; }
 
         [Required]
-        public User Author { get; set; }
+        public Guid UserId { get; set; }
 
     }
 }
