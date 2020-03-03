@@ -11,17 +11,19 @@ namespace Data
     public class Post
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         [Required]
-        [Range(1,30)]
+        [MinLength(2, ErrorMessage ="Please enter at least 2 characters.")]
+        [MaxLength(30, ErrorMessage ="Titles have to be less than 30 characters.")]
         public string Title { get; set; }
         [Required]
-        [Range(1,240)]
+        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
+        [MaxLength(240, ErrorMessage = "Titles have to be less than 240 characters.")]
         public string Text { get; set; }
-       
-        public User Name { get; set; }
-        [Required]
-        public virtual User Author { get; set; }
+
+        [ForeignKey(nameof(User))]
+        public Guid UserId { get; set; }
+        public virtual User User { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
 
     }
