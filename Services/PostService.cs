@@ -56,7 +56,7 @@ namespace Services
             }
         }
 
-        public PostDetail GetPostByComment(User author)
+        public PostDetail GetPostByComment(User author)//       pretty sure this doesn't work
         {
             using (var ctx = new ApplicationDbContext())
             {

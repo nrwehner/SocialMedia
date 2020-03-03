@@ -11,7 +11,8 @@ namespace Models
     public class PostCreate
     {
         [Required]
-        [Range(1, 30)]
+        [MinLength(2, ErrorMessage ="Please enter at least two characters.")]
+        [MaxLength(30, ErrorMessage ="Title must be less than 30 characters.")]
         public string Title { get; set; }
 
         [Required]

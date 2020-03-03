@@ -18,8 +18,12 @@ namespace Data
         [Required]
         [Range(1,240)]
         public string Text { get; set; }
+       
+        //[ForeignKey]
+        public User Name { get; set; }
         [Required]
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
+
     }
 }

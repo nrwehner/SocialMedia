@@ -33,7 +33,6 @@ namespace SocialMediaAPI.Controllers
             return Ok();
             
         }
-
         private PostService CreatePostService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
